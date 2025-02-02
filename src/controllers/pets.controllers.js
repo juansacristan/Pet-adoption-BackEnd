@@ -5,4 +5,14 @@ function getPets(req, res){
     });
 };
 
-module.exports = getPets
+function createPets(req, res){
+    res.json({
+        ok: true,
+        msg: 'Crear mascota'
+    })
+}
+
+module.exports = {
+    getPets,
+    createPets
+};

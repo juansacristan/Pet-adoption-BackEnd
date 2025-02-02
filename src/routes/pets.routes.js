@@ -1,9 +1,10 @@
 const express = require ('express');
 const router = express.Router();
 
-const getPets = require('../controllers/pets.controllers');
+const { createPets, getPets } = require('../controllers/pets.controllers');
 
-//Definir todas las rutas para entidad Pets --> hhtp://localhost:3000/api/pets
+//Definir todas las rutas para entidad Pets --> http://localhost:3000/api/pets
 router.get('/', getPets);
+router.post('/', createPets); //Registrar  mascota
 
 module.exports = router; // expongo la funcionalidad de este archivo para ser usada por otros archivos

@@ -8,7 +8,7 @@ const dbConection = require('./config/mongo.config');
 //Paso: conexion a la base de datos
 dbConection();
 
-//Paso: Define una ruta para / es decir http//localhost:3000/
+//Paso: Define una ruta para / es decir http://localhost:3000/
 app.get('/', greeting);
 
 //Paso: Definir las rutas en archivos separados
