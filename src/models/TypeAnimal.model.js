@@ -13,7 +13,7 @@ const TypeAniamlSchema = new mongoose.Schema({
 
 /** PAso 2: Asociar la estructura de datos (documento) con una coleccion */
 const TypeAnimalModel = mongoose.model(
-    'animal',
+    'animals',
     TypeAniamlSchema
 )
 
