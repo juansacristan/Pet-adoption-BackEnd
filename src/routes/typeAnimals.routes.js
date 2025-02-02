@@ -2,7 +2,7 @@ const express = require ('express');
 const router = express.Router();
 
 
-const { createAnimal } = require('../controllers/animal.controllers');
+const { createAnimal } = require('../controllers/typeAnimals.controllers');
 
 
 //Definir todas las rutas para entidad TypeAnimal --> http://localhost:3000/api/animals

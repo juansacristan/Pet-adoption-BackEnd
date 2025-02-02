@@ -8,6 +8,9 @@ const dbConection = require('./config/mongo.config');
 //Paso: conexion a la base de datos
 dbConection();
 
+//Paso: Darle la capacidad a Express de poder Interpretar JSON
+app.use(express.json());
+
 //Paso: Define una ruta para / es decir http://localhost:3000/
 app.get('/', greeting);
 

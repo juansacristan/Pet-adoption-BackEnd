@@ -17,4 +17,4 @@ const TypeAnimalModel = mongoose.model(
     TypeAniamlSchema
 )
 
-module.exports = TypeAniamlSchema
+module.exports = TypeAnimalModel;
