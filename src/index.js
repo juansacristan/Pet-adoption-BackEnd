@@ -1,13 +1,10 @@
 const express = require('express');  // importamos express pars deifinir las rutas de la aplicacion
 const app = express();
 
+const greeting = require('./controllers/main.controllers');
+
 //Paso: Define una ruta para / es decir http//localhost:3000/
-app.get('/', function (req, res){
-    res.json({
-        ok: true,
-        msg: 'Bienvenido a adopcion Adoption Pets'
-    })
-});
+app.get('/', greeting);
 
 //Paso: Definir las rutas en archivos separados
 app.use('/api/pets', require('./routes/pets.routes'));
