@@ -2,6 +2,11 @@ const express = require('express');  // importamos express pars deifinir las rut
 const app = express();
 
 const greeting = require('./controllers/main.controllers');
+const dbConection = require('./config/mongo.config');
+
+
+//Paso: conexion a la base de datos
+dbConection();
 
 //Paso: Define una ruta para / es decir http//localhost:3000/
 app.get('/', greeting);
