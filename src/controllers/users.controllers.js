@@ -1,17 +1,29 @@
-const { insertUser } = require("../services/users.services");
+const { dbInsertUser, dbGetUsers, } = require("../services/users.services");
 
-function getUsers(req, res){
-    res.json({
-        ok: true,
-        msg: 'Obtener todos los usuarios'
-    });
+async function getUsers(req, res){
+
+    try {
+        const data = await dbGetUsers()
+        res.json({
+            ok: true,
+            data: data
+        });
+    } 
+    catch (error) {
+        console.error(error)
+        res.json({
+            ok: false,
+            msg: 'Ha ocurrido un error al obtener todos los usuarios'
+        })
+    }
+
 };
 
 async function createUsers(req, res){
     const inputData = req.body;
 
     try {
-        const data = await insertUser(inputData);
+        const data = await dbInsertUser(inputData);
 
         res.json({
             ok: true,
