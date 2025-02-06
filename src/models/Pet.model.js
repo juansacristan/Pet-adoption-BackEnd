@@ -17,7 +17,7 @@ const PetSchema = new mongoose.Schema({
     },
     gender:{
         type: String,
-        genders:['male', 'female']
+        genders:['macho', 'femenino']
     },
     typeAnimal:{
         type: mongoose.Schema.ObjectId,     /** Asociamos el tipo al Id del documento */

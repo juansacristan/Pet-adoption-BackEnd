@@ -24,6 +24,7 @@ async function createAnimal(req, res){
     }
 }
 
+
 module.exports = {
     createAnimal
 };
