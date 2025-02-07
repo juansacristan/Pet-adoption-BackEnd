@@ -8,7 +8,33 @@ async function dbGetUsers() {
     return await UserModel.find();
 }
 
+async function dbDeleteUser (id){
+    // return await UserModel.findByIdAndDelete(id);
+    return await UserModel.findOneAndDelete({ _id: id });
+}
+
+async function dbGetUserById (id){
+    return await UserModel.findById(id);
+    return await UserModel.findOne({ _id: id });
+}
+
+async function dbUpdateUserById (id, newUser){
+    return await UserModel.findByIdAndUpdate(
+        id,
+        newUser,
+        {new: true}
+    );
+    return await UserModel.findOneAndUpdate(
+        { _id: id },
+        newUser,
+        {new: true}
+    );
+}
+
 module.exports = {
     dbInsertUser,
-    dbGetUsers
+    dbGetUsers,
+    dbDeleteUser,
+    dbGetUserById,
+    dbUpdateUserById
 };

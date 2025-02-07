@@ -1,4 +1,4 @@
-const { dbInsertUser, dbGetUsers, } = require("../services/users.services");
+const { dbInsertUser, dbGetUsers, dbDeleteUser, dbGetUserById, dbUpdateUserById, } = require("../services/users.services");
 
 async function getUsers(req, res){
 
@@ -8,7 +8,7 @@ async function getUsers(req, res){
             ok: true,
             data: data
         });
-    } 
+    }
     catch (error) {
         console.error(error)
         res.json({
@@ -29,7 +29,7 @@ async function createUsers(req, res){
             ok: true,
             data: data
         })
-    } 
+    }
     catch (error) {
         console.error(error)
         res.json({
@@ -41,26 +41,71 @@ async function createUsers(req, res){
 
 };
 
-function getUsersById(req, res){
-    res.json({
-        ok: true,
-        msg: 'Obtener usuario por Id'
-    })
+async function deleteUsers(req, res){
+    const id = req.params.id
+
+    try {
+        const data = await dbDeleteUser(id);
+
+        res.json({
+            ok: true,
+            data: data
+        })
+    }
+    catch (error) {
+        console.error(error)
+        res.json({
+            ok: false,
+            msg: 'Ha ocurrido un error al eliminar usuario'
+        })
+    }
+
+
 };
 
-function deleteUsers(req, res){
-    res.json({
-        ok: true,
-        msg: 'Eliminar un usuario'
-    })
+async function getUsersById(req, res){
+    const id = req.params.id
+
+    try {
+        const data = await dbGetUserById(id);
+
+        res.json({
+            ok: true,
+            data: data
+        })
+    }
+    catch (error) {
+        console.error(error)
+        res.json({
+            ok: false,
+            msg: 'Ha ocurrido un error al obtener usuario por Id'
+        })
+    }
+
+
 };
 
-function patchUsers (req, res){
-    res.json({
-        ok: true,
-        mesg: 'Actualizar usuario'
-    })
-};
+async function patchUsers(req, res) {
+    const id = req.params.id;
+    const inputData = req.body;
+
+    try {
+        const data = await dbUpdateUserById (id, inputData);
+        res.json({
+            ok: true,
+            data: data
+        });
+    } 
+    catch (error) {
+        console.error(error);
+        res.json({
+            ok: false,
+            msg: 'Ha ocurrido una excepcion al actualizar un usuario por id'
+        })
+    }
+    
+}
+
 
 
 module.exports ={
@@ -68,5 +113,5 @@ module.exports ={
     createUsers,
     getUsersById,
     deleteUsers,
-    patchUsers
+    patchUsers,
 }

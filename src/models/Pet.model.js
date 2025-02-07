@@ -8,6 +8,7 @@ const PetSchema = new mongoose.Schema({
     },
     race:{
         type: String,
+        required: true
     },
     age:{
         /** Edad en meses */
@@ -31,7 +32,8 @@ const PetSchema = new mongoose.Schema({
     },
     state:{
         type: String,
-        states: ['vacunado', 'adoptado', 'recuperado', 'hospitalizado']
+        states: ['vacunado', 'adoptado', 'recuperado', 'hospitalizado'],
+        default: "recuperado"
     }
 });
 
