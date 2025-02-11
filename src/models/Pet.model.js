@@ -2,6 +2,7 @@ const mongoose = require ('mongoose');
 
 /** Paso 1: Crear la estructura de datos del documento */
 const PetSchema = new mongoose.Schema({
+
     name:{
         type: String,
         required: true,
@@ -32,8 +33,8 @@ const PetSchema = new mongoose.Schema({
     },
     state:{
         type: String,
-        states: ['vacunado', 'adoptado', 'recuperado', 'hospitalizado'],
-        default: "recuperado"
+        states: ['vacunado', 'esterilizado', 'hospitalizado', 'desparasitado', 'entrenado'],
+        default: "vacunado"
     }
 });
 

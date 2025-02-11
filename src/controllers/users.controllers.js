@@ -1,4 +1,8 @@
-const { dbInsertUser, dbGetUsers, dbDeleteUser, dbGetUserById, dbUpdateUserById, } = require("../services/users.services");
+const mongoose = require("mongoose");
+// const validateId = require ('../helpers/validate-id-helper');
+
+
+const { dbInsertUser, dbGetUsers, dbDeleteUser, dbGetUserById, dbUpdateUserById, } = require("../services/users.service");
 
 async function getUsers(req, res){
 
@@ -67,6 +71,7 @@ async function getUsersById(req, res){
     const id = req.params.id
 
     try {
+        // validateId(id);
         const data = await dbGetUserById(id);
 
         res.json({

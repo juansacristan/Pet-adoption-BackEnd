@@ -1,8 +1,8 @@
-const{ dbGetPets, dbinsertPet, dbDeletePet, dbGetPetById, dbUpdatePetsById } = require ("../services/pets.service")
+const { dbGetAdoption, dbinsterAdoption, dbDeleteAdoption, dbGetAdoptionById } = require ("../services/adoption.service")
 
-async function getPets(req, res){
+async function getAdoption(req, res) {
     try {
-        const data = await dbGetPets()
+        const data = await dbGetAdoption();
         res.json({
             ok: true,
             data: data
@@ -12,84 +12,76 @@ async function getPets(req, res){
         console.error(error)
         res.json({
             ok: false,
-            msg: 'Ha ocurrido un error al obtener todas las mascotas'
+            msg:'Ha ocurrido un error al obtener todos los adoptaciones'
         })
+        
     }
-
+    
 };
 
-async function createPets(req, res){
+async function createAdoption(req, res) {
     const inputData = req.body;
-
     try {
-        const data = await dbinsertPet(inputData);
-
+        const data = await dbinsterAdoption(inputData);
         res.json({
             ok: true,
             data: data
         })
-    }
+    } 
     catch (error) {
         console.error(error)
         res.json({
             ok: false,
-            msg: 'Ha ocurrido un error al crear mascota'
+            msg: 'Ha ocurrido un error al crear un adopcion'
         })
+        
     }
-
-
+    
 };
 
-async function deletePets(req, res){
+async function deleteAdoption(req, res){
     const id = req.params.id
-
     try {
-        const data = await dbDeletePet(id);
-
+        const data = await dbDeleteAdoption(id);
         res.json({
             ok: true,
             data: data
-        })
-    }
+        });
+    } 
     catch (error) {
         console.error(error)
         res.json({
             ok: false,
-            msg: 'Ha ocurrido un error al eliminar mascota'
+            msg: 'Ha ocurrido un error al eliminar adopcion'
         })
+        
     }
-
-
 };
 
-async function getPetsById(req, res){
+async function getAdoptionById(req, res) {
     const id = req.params.id
-
     try {
-        const data = await dbGetPetById(id);
-
+        const data = await dbGetAdoptionById(id);
         res.json({
             ok: true,
             data: data
-        })
-    }
+        });
+    } 
     catch (error) {
         console.error(error)
         res.json({
             ok: false,
-            msg: 'Ha ocurrido un error al obtener mascota por Id'
+            msg: 'Ha ocurrido un error al obtener todos los adoptaciones'
         })
     }
-
-
+    
 };
 
-async function patchPets(req, res) {
+async function patchAdoption(req, res) {
     const id = req.params.id;
     const inputData = req.body;
-
     try {
-        const data = await dbUpdatePetsById (id, inputData);
+        const data = await dbGetAdoptionById(id, inputData);
         res.json({
             ok: true,
             data: data
@@ -99,17 +91,17 @@ async function patchPets(req, res) {
         console.error(error);
         res.json({
             ok: false,
-            msg: 'Ha ocurrido una excepcion al actualizar una mascota por id'
+            msg: 'Ha ocurrido una excepcion al actualizar un adopcion por id'
         })
+        
     }
     
 };
 
-
 module.exports = {
-    getPets,
-    createPets,
-    getPetsById,
-    deletePets,
-    patchPets
+    getAdoption,
+    createAdoption,
+    getAdoptionById,
+    deleteAdoption,
+    patchAdoption
 };
