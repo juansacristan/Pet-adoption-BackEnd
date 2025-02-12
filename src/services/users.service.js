@@ -31,10 +31,17 @@ async function dbUpdateUserById (id, newUser){
     );
 }
 
+async function dbGetUserByUsername(email) {
+   return await UserModel.findOne(
+      {username: email}
+    );
+}
+
 module.exports = {
     dbInsertUser,
     dbGetUsers,
     dbDeleteUser,
     dbGetUserById,
-    dbUpdateUserById
+    dbUpdateUserById,
+    dbGetUserByUsername
 };
