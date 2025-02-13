@@ -6,7 +6,7 @@ async function validateUserExists(req, res, next){
     const inputData = req.body;
     try {
             // Paso 2: Consulto si el usuario existe en la DB (email --> username)
-    const dataFound = dbGetUserByUsername(inputData.username);
+    const dataFound = await dbGetUserByUsername(inputData.username);
 
         // Paso 3: Verifico Si el usuario existe y retorno un mensaje al cliente - SE DETIENE
         if(dataFound){

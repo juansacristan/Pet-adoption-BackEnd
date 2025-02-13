@@ -19,11 +19,17 @@ const UserSchema = new mongoose.Schema({
     },
     username:{
         type: String,
+        lowercase: true,
         required: true
     },
     pass:{
         type: String,
         required: true
+    },
+    roles:{
+        type: String,
+        enum: ['registrado', 'moderator', 'admin'],
+        default: 'registrado'
     }
 })
 
