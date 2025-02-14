@@ -4,7 +4,7 @@ const mongoose = require ('mongoose');
 const UserSchema = new mongoose.Schema({
     name:{
         type: String,
-        required: true,
+        required: [true, 'El nombre del usuario es obligatorio' ]
     },
     age:{
         type: Number,
@@ -20,7 +20,7 @@ const UserSchema = new mongoose.Schema({
     username:{
         type: String,
         lowercase: true,
-        required: true
+        required: [true, 'El username es obligatorio' ]
     },
     pass:{
         type: String,

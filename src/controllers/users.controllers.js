@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 
 const { dbInsertUser, dbGetUsers, dbDeleteUser, dbGetUserById, dbUpdateUserById, } = require("../services/users.service");
 
+const verifyProperties = require ('../helpers/verify-properties.helpers')
+
 async function getUsers(req, res){
 
     try {
@@ -35,10 +37,30 @@ async function createUsers(req, res){
         })
     }
     catch (error) {
-        console.error(error)
+        console.error(error.errors);   // Imprime error al desarrollador
+
+        const errors = verifyProperties (error);
+
+        // console.log(errors);
+
+        // const person = {
+        //     name: 'Juan',
+        //     age: 47,
+        //     gender:'Male'
+        // }
+
+        // Object.keys   ---> ['name', 'age', 'gender']
+        // Object.values ---> ['Juan', 47, 'Male']
+        // Object.entries---> [{name:'Juan'}, {age: 47}, {gender:'Male'}]
+
+        // for (const [key, value] of Object.entries(person)){
+        //     console.log( value.message);
+
+        //Envia un mensaje de error legible al cliente
         res.json({
             ok: false,
-            msg: 'Ha ocurrido un error al crear usuario'
+            msg: 'Ha ocurrido un error al crear usuario',
+            error: errors
         })
     }
 
