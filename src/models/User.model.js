@@ -22,11 +22,11 @@ const UserSchema = new mongoose.Schema({
         lowercase: true,
         required: [true, 'El username es obligatorio' ]
     },
-    pass:{
+    password:{
         type: String,
         required: true
     },
-    roles:{
+    role:{
         type: String,
         enum: ['registrado', 'moderator', 'admin'],
         default: 'registrado'

@@ -1,13 +1,12 @@
-function verifyProperties(){
-    const errors = {};
-    if (error?.name === 'ValidationError'){
-        for (const [key, value] of Object.entries(error.errors)){
-            console.log(key, value.message);
-            errors[key] = value.message;
-        };
-    }
+const verifyProperties = ( error ) => {
+    const errors = {};      // Define objeto donde se almacenaran los mensajes de error y el nombre del campo que produce el error
 
-    return errors;
+    /** Iteramos el objeto de error.errors por cada una de las propiedades que contenga */
+    for( const [ key, value ] of Object.entries( error.errors ) ) {
+        errors[ key ] = value.message;      // Creamos un objeto de respuesta adecuado para el cliente
+    }
+    
+    return errors;      // Retornamos dicho objeto de respuesta
 }
 
 
