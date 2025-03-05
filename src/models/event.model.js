@@ -25,7 +25,7 @@ const EventSchema = new mongoose.Schema({
         type: String
     },
     state: {
-        type: String,
+        type: Boolean,
         required: true
     }
 });
