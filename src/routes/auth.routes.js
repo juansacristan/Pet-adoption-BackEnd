@@ -4,8 +4,8 @@ const loginUser = require('../controllers/auth.controllers');
 const validateUserExists = require('../middlewares/validate-user-exists');
 const router = express.Router();
 
-router.post('/register',createUsers);
-router.post('/login', validateUserExists, loginUser);
+router.post('/register', validateUserExists, createUsers);
+router.post('/login', loginUser);
 
 
 // router.post('/login', (req, res) => {

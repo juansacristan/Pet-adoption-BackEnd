@@ -20,7 +20,8 @@ const UserSchema = new mongoose.Schema({
     username:{
         type: String,
         lowercase: true,
-        required: [true, 'El username es obligatorio' ]
+        required: [true, 'El username es obligatorio' ],
+        unique: [true, 'el correo debe ser uno']
     },
     password:{
         type: String,
@@ -31,6 +32,8 @@ const UserSchema = new mongoose.Schema({
         enum: ['registrado', 'moderator', 'admin'],
         default: 'registrado'
     }
+},{
+    versionKey: false
 })
 
 const UserModel = mongoose.model(

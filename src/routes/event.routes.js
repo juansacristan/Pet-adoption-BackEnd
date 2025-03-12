@@ -8,4 +8,5 @@ router.delete('/:id', deleteEvent);
 router.patch('/:id', updateEvent);
 router.get("/", getEvents)
 
+
 module.exports = router;

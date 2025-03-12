@@ -1,7 +1,6 @@
 const express = require('express');  // importamos express pars deifinir las rutas de la aplicacion
 const app = express();
 const cors = require('cors');
-
 const greeting = require('./controllers/main.controllers');
 const dbConection = require('./config/mongo.config');
 

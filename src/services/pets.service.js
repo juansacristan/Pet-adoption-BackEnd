@@ -6,7 +6,7 @@ async function dbinsertPet(newAnimal) {
 }
 
 async function dbGetPets() {
-    return await PetModel.find().populate('animal');
+    return await PetModel.find().populate('name');
 }
 
 async function dbDeletePet (id){

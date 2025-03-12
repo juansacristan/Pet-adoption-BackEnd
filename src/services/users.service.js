@@ -1,4 +1,4 @@
-const encryptedPassword = require('../helpers/bcrypt.helpers');
+const { encryptedPassword } = require('../helpers/bcrypt.helpers');
 const UserModel = require ('../models/User.model');
 
 async function dbInsertUser (newUser){
@@ -10,7 +10,7 @@ async function dbInsertUser (newUser){
     console.log('dbUser', dbUser);
 
     //Paso 2: Encripta y actualiza password en su respectiva propiedad
-   dbUser.password = encryptedPassword(dbUser.pass);
+   dbUser.password = encryptedPassword(dbUser.password);
    // Paso 3: Registra el objeto BJSON con los cambios hechos
    await dbUser.save(); // Guarda en la base de datos
 

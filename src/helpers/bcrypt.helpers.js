@@ -13,5 +13,14 @@ function encryptedPassword(pass){
     return hashPassword;
 }
 
+function verifyEncriptedPassword (pass, hashPassword) {
+    return bcrypt.compareSync(
+        pass,               //Password original
+        hashPassword        //Password Hash
+    );
+}
 
-module.exports = encryptedPassword;
+module.exports = {
+    encryptedPassword,
+    verifyEncriptedPassword
+};

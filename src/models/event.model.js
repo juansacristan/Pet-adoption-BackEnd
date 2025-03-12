@@ -9,11 +9,13 @@ const EventSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+
     starttime: {
         type: String,
         required: true
     },
     timeofcompletion: {
+
         type: String,
         required: true
     },
@@ -27,6 +29,8 @@ const EventSchema = new mongoose.Schema({
     state: {
         type: Boolean
     }
+},{
+    versionKey: false
 });
 
 const EventModel = mongoose.model(
