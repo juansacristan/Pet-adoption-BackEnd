@@ -30,6 +30,8 @@ const AdoptionSchema = new mongoose.Schema({
     size:{
         type: String,
     }
+},{
+    versionKey: false
 })
 
 const AdoptionModel = mongoose.model(

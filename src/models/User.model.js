@@ -32,6 +32,8 @@ const UserSchema = new mongoose.Schema({
         enum: ['registrado', 'moderator', 'admin'],
         default: 'registrado'
     }
+},{
+    versionKey: false
 })
 
 const UserModel = mongoose.model(

@@ -28,6 +28,8 @@ const EventSchema = new mongoose.Schema({
         type: Boolean,
         required: true
     }
+},{
+    versionKey: false
 });
 
 const EventModel = mongoose.model(

@@ -36,6 +36,8 @@ const PetSchema = new mongoose.Schema({
         states: ['vacunado', 'esterilizado', 'hospitalizado', 'desparasitado', 'entrenado'],
         default: "vacunado"
     }
+},{
+    versionKey: false
 });
 
 /** Paso 2: Asociar la estructura de datos (documento) con una coleccion */
