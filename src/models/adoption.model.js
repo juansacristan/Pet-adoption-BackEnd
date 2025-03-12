@@ -13,7 +13,8 @@ const AdoptionSchema = new mongoose.Schema({
     },
     state:{
         type: String,
-        states:['proceso', 'transito', 'adoptado', 'reservado', 'disponible']
+        states:['proceso', 'transito', 'adoptado', 'reservado', 'disponible'],
+        default: 'proceso'
     },
     gender:{
         type: String,

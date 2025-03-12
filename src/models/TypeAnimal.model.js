@@ -4,11 +4,14 @@ const mongoose = require ('mongoose');
 const TypeAniamlSchema = new mongoose.Schema({
     name:{
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     description:{
         type: String
     }
+},{
+    versionKey: false
 });
 
 /** PAso 2: Asociar la estructura de datos (documento) con una coleccion */

@@ -1,5 +1,6 @@
 const express = require('express');  // importamos express pars deifinir las rutas de la aplicacion
 const app = express();
+const cors = require('cors')
 
 const greeting = require('./controllers/main.controllers');
 const dbConection = require('./config/mongo.config');
@@ -10,6 +11,8 @@ dbConection();
 
 //Paso: Darle la capacidad a Express de poder Interpretar JSON
 app.use(express.json());
+app.use(cors())
+
 
 //Paso: Define una ruta para / es decir http://localhost:3000/
 app.get('/', greeting);

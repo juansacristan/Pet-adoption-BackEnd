@@ -25,6 +25,7 @@ async function getUsers(req, res){
 
 };
 
+
 async function createUsers(req, res){
     const inputData = req.body;
 
@@ -34,38 +35,36 @@ async function createUsers(req, res){
         res.json({
             ok: true,
             data: data
-        })
+        });
     }
     catch (error) {
-        console.error(error.errors);   // Imprime error al desarrollador
+        console.error( error.errors );
+        /** Validamos si existen los errores de validacion */
+        if( error?.name === 'ValidationError' ) {
+            const errors = verifyProperties( error );       // Extrae los mensajes de error por cada propiedad
 
-        const errors = verifyProperties (error);
+            console.error( errors );           // Imprime error al Desarrollador
+            // Envia un mensaje de error legible al cliente
+            return res.json({
+                ok: false,
+                errors
+            });
+        }
 
-        // console.log(errors);
+        console.error( error );       // Imprime error al Desarrollador
+        // Envia un mensaje de error legible al cliente
+        res.json({                  
+            ok: false,
+            msg: 'Ha ocurrido una excepcion al registrar un usuario',
+        });
+    }
+    
 
-        // const person = {
-        //     name: 'Juan',
-        //     age: 47,
-        //     gender:'Male'
-        // }
+};
 
         // Object.keys   ---> ['name', 'age', 'gender']
         // Object.values ---> ['Juan', 47, 'Male']
         // Object.entries---> [{name:'Juan'}, {age: 47}, {gender:'Male'}]
-
-        // for (const [key, value] of Object.entries(person)){
-        //     console.log( value.message);
-
-        //Envia un mensaje de error legible al cliente
-        res.json({
-            ok: false,
-            msg: 'Ha ocurrido un error al crear usuario',
-            error: errors
-        })
-    }
-
-
-};
 
 async function deleteUsers(req, res){
     const id = req.params.id

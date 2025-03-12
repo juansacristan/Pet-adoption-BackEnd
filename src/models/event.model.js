@@ -10,11 +10,11 @@ const EventSchema = new mongoose.Schema({
         required: true
     },
     starTime: {
-        type: Number,
+        type: String,
         required: true
     },
     timeOfCompletion: {
-        type: Number,
+        type: String,
         required: true
     },
     place: {
