@@ -6,27 +6,26 @@ const EventSchema = new mongoose.Schema({
         required: true,
     },
     date:{
-        type: Number,
+        type: String,
         required: true
     },
-    starTime: {
-        type: Number,
+    starttime: {
+        type: String,
         required: true
     },
-    timeOfCompletion: {
-        type: Number,
+    timeofcompletion: {
+        type: String,
         required: true
     },
     place: {
         type: String,
         required: true
     },
-    description: {
+    descripcion: {
         type: String
     },
     state: {
-        type: Boolean,
-        required: true
+        type: Boolean
     }
 });
 

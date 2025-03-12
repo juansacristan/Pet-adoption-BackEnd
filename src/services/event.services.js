@@ -19,9 +19,14 @@ async function bdGetUsername( email ) {
     return await UserModel.findOne({ username: email });
 };
 
+async function dbgetEvents() {
+    return await EvenModel.find()
+}
+
 module.exports = {
     bdInsertName,
     bdDeleteEvent,
     bdUpdateEventById,
-    bdGetUsername
+    bdGetUsername,
+    dbgetEvents
 };

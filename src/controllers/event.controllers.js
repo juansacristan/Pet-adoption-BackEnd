@@ -1,5 +1,5 @@
 const mongoose = require ( "mongoose" );
-const { bdInsertName, bdDeleteEvent, bdUpdateEventById } = require("../services/event.services");
+const { bdInsertName, bdDeleteEvent, bdUpdateEventById, dbgetEvents } = require("../services/event.services");
 
 
 async function createEvent(req, res){
@@ -68,8 +68,28 @@ async function updateEvent(req, res) {
     }
 };
 
+async function getEvents(req, res){
+    try {
+        const data = await dbgetEvents()
+        res.json({
+            ok: true,
+            data: data
+        });
+    } 
+    catch (error) {
+        console.error(error)
+        res.json({
+            ok: false,
+            msg: 'Ha ocurrido un error al obtener todas las mascotas'
+        })
+    }
+
+};
+
 module.exports = {
     createEvent,
     deleteEvent,
-    updateEvent
+    updateEvent,
+    getEvents
+    
 };
