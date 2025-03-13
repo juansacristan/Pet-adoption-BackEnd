@@ -4,7 +4,7 @@
   "description": "BackEnd Api para Adoption Pets",
   "main": "index.js",
   "scripts": {
-    "dev": "node --env-file .env  --watch ./src/index.js"
+    "dev": "node --watch ./src/index.js"
   },
   "author": "Juan Sacristan <juanenciso1007@gmail.com>",
   "license": "ISC",

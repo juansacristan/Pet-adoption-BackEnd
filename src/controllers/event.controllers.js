@@ -26,12 +26,12 @@ async function deleteEvent(req, res) {
     const id = req.params.id;
 
     try {
-        if ( ! mongoose.Types.ObjecId.isvalid( id ) ) {
-            return res.json({
-                ok: false,
-                msg: "El mensaje no es valido"
-            })
-        }
+        // if ( ! mongoose.Types.ObjecId.isvalid( id ) ) {
+        //     return res.json({
+        //         ok: false,
+        //         msg: "El mensaje no es valido"
+        //     })
+        // }
         const data = await bdDeleteEvent(id);
 
         res.json({
