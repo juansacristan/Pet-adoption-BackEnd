@@ -12,6 +12,8 @@ dbConection();
 app.use(express.json());
 app.use(cors())
 
+const PORT = process.env.PORT ??  3001;
+
 //Paso: Define una ruta para / es decir http://localhost:3000/
 app.get('/', greeting);
 
@@ -23,6 +25,6 @@ app.use('/api/adoption', require('./routes/adoption.routes'));
 app.use('/api/event', require ('./routes/event.routes.js'))
 app.use('/api/auth', require ('./routes/auth.routes'));
 // Ultimo paso: Lanzo el servidor web usando Express
-app.listen(3000, function(){
-    console.log('Servidor corriendo en el puerto 3000');
+app.listen(PORT, function(){
+    console.log(`Servidor lanzado en http://localhost:${PORT}`);
 });

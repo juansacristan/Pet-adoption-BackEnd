@@ -17,9 +17,33 @@ async function getPets(req, res){
     }
 
 };
-
-async function createPets(req, res){
+            // Crear peludo Publico
+async function createPetsPublic(req, res){
     const inputData = req.body;
+
+    try {
+        const data = await dbinsertPet(inputData);
+
+        res.json({
+            ok: true,
+            data: data
+        })
+    }
+    catch (error) {
+        console.error(error)
+        res.json({
+            ok: false,
+            msg: 'Ha ocurrido un error al crear mascota'
+        })
+    }
+
+
+};
+            // Crear peludo Privado
+async function createPetsPrivate(req, res){
+    const inputData = req.body;
+    const userId = req.authUser.id
+    inputData.userId = userId
 
     try {
         const data = await dbinsertPet(inputData);
@@ -108,7 +132,8 @@ async function patchPets(req, res) {
 
 module.exports = {
     getPets,
-    createPets,
+    createPetsPublic,
+    createPetsPrivate,
     getPetsById,
     deletePets,
     patchPets

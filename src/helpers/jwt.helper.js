@@ -3,7 +3,7 @@ const jwt = require ('jsonwebtoken');
 function generateToken(payload){
     return jwt.sign(
         payload,                // Payload (Carga Util)
-        'j&fmujk$iiu%ky',                     // Seed: Palabra secreta
+        process.env.JWT_SEED,                     // Seed: Palabra secreta
         {expiresIn: '1h' }      // Configuración (Expiracion del)
     );
 }
@@ -11,7 +11,7 @@ function generateToken(payload){
 function verifyToken (token){
     return jwt.verify(
         token,
-        'j&fmujk$iiu%ky'
+        process.env.JWT_SEED
     )
 }
 

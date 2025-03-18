@@ -35,6 +35,10 @@ const PetSchema = new mongoose.Schema({
         type: String,
         states: ['vacunado', 'esterilizado', 'hospitalizado', 'desparasitado', 'entrenado'],
         default: "vacunado"
+    },
+    userId:{
+        type: mongoose.Schema.ObjectId,
+        ref: 'users'
     }
 },{
     versionKey: false
