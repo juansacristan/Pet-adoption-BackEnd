@@ -14,7 +14,7 @@ const EventSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    timeofcompletion: {
+    timeofCompletion: {
 
         type: String,
         required: true
@@ -28,9 +28,14 @@ const EventSchema = new mongoose.Schema({
     },
     state: {
         type: Boolean
-    }
-},{
-    versionKey: false
+    },
+    urlImage:{
+        type: String
+    },
+    userId:{
+        type: mongoose.Schema.ObjectId,
+        ref: 'users'
+    },
 });
 
 const EventModel = mongoose.model(

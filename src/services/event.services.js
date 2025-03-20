@@ -15,12 +15,13 @@ async function bdUpdateEventById(id, newEvento){
         {new: true}
     );
 }
+async function bdGetEventById (id){
+    return await EventModel.findById(id);
+    return await EventModel.findOne({ _id: id });
+}
 
-async function bdGetUsername( email ) {
-    return await UserModel.findOne({ username: email });
-};
 
-async function dbgetEvents() {
+async function bdgetEvents() {
     return await EventModel.find()
 }
 
@@ -28,6 +29,6 @@ module.exports = {
     bdInsertName,
     bdDeleteEvent,
     bdUpdateEventById,
-    bdGetUsername,
-    dbgetEvents
+    bdgetEvents,
+    bdGetEventById
 };
