@@ -22,7 +22,7 @@ app.use('/api/pets', require('./routes/pets.routes'));
 app.use ('/api/users', require('./routes/users.routes'));
 app.use('/api/animals', require ('./routes/typeAnimals.routes'));
 app.use('/api/adoption', require('./routes/adoption.routes'));
-app.use('/api/event', require ('./routes/event.routes.js'))
+app.use('/api/events', require ('./routes/event.routes.js'))
 app.use('/api/auth', require ('./routes/auth.routes'));
 // Ultimo paso: Lanzo el servidor web usando Express
 app.listen(PORT, function(){

@@ -1,14 +1,14 @@
 const EventModel = require( "../models/event.model" );
 
-async function bdInsertName(newEvento) {
-    return await EventModel.create (newEvento);
+async function bdInsertEvent(newEvent) {
+    return await EventModel.create (newEvent);
 }
 
 async function bdDeleteEvent(id){
     return await EventModel.findOneAndDelete({ _id: id });
     
 }
-async function bdUpdateEventById(id, newEvento){
+async function bdUpdateEventById(id, newEvent){
     return await EventModel.findByIdAndUpdate(
         id,
         newEvento,
@@ -21,14 +21,14 @@ async function bdGetEventById (id){
 }
 
 
-async function bdgetEvents() {
+async function bdgetEvent() {
     return await EventModel.find()
 }
 
 module.exports = {
-    bdInsertName,
+    bdInsertEvent,
     bdDeleteEvent,
     bdUpdateEventById,
-    bdgetEvents,
+    bdgetEvent,
     bdGetEventById
 };

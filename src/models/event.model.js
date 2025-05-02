@@ -23,18 +23,15 @@ const EventSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    descripcion: {
+    description: {
         type: String
     },
     state: {
-        type: Boolean
+        type: String,
+        states:['abierto', 'cerrado']
     },
     urlImage:{
         type: String
-    },
-    userId:{
-        type: mongoose.Schema.ObjectId,
-        ref: 'users'
     },
 });
 
