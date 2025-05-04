@@ -11,7 +11,7 @@ async function bdDeleteEvent(id){
 async function bdUpdateEventById(id, newEvent){
     return await EventModel.findByIdAndUpdate(
         id,
-        newEvento,
+        newEvent,
         {new: true}
     );
 }
@@ -22,7 +22,7 @@ async function bdGetEventById (id){
 
 
 async function bdgetEvent() {
-    return await EventModel.find()
+    return await EventModel.find().populate('name')
 }
 
 module.exports = {
